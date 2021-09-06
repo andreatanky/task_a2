@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: task-a2
+spec:
+  selector:
+    matchLabels:
+      app: task-a2
+  replicas: 2 # tells deployment to run 2 pods matching the template
+  template:
+    metadata:
+      labels:
+        app: task-a2
+    spec:
+      containers:
+      - name: task-a2
+        image: cs3219_task_a2
+        imagePullPolicy: Never
+        ports:
+        - containerPort: 80
